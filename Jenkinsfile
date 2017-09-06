@@ -1,10 +1,17 @@
 pipeline {
  agent any
  stages {
-        stage('Test') {
+        stage('CreateVirtualEnv') {
             steps {
-                echo 'hola mundo'
+                virtualenv entorno_virtual
+		source entorno_virtual/bin/activate
             }
         }
+        stage('InstallRequirements') {
+            steps {
+                pip install -r requirements.txt
+            }
+        }        
   }
 }
+
