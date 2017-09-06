@@ -13,6 +13,7 @@ pipeline {
         stage('InstallRequirements') {
             steps {
             	sh '''
+            		bash -c "source entorno_virtual/bin/activate"
                 	bash -c "pip install -r requirements.txt"
                 '''
             }
@@ -20,6 +21,7 @@ pipeline {
         stage('TestApp') {
             steps {
             	sh '''
+            		bash -c "source entorno_virtual/bin/activate"
                 	bash -c "cd src && pytest && cd .."
                 '''
             }
@@ -27,6 +29,7 @@ pipeline {
         stage('RunApp') {
             steps {
             	sh '''
+            		bash -c "source entorno_virtual/bin/activate"
                 	bash -c "python src/main.py &"
                 '''
             }
@@ -34,4 +37,3 @@ pipeline {
 
   }
 }
-
