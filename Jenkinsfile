@@ -5,4 +5,5 @@ pipeline {
                 echo 'hola mundo'
             }
         }
+  }
 }
