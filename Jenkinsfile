@@ -8,11 +8,6 @@ pipeline {
 		source entorno_virtual/bin/activate
             }
         }
-        stage('InstallRequirements') {
-            steps {
-                pip install -r requirements.txt
-            }
-        }        
   }
 
 }
