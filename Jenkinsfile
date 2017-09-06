@@ -17,21 +17,21 @@ pipeline {
         stage('InstallRequirements') {
             steps {
             	sh '''
-            		bash -c "source entorno_virtual/bin/activate && pip install -r requirements.txt"
+            		bash -c "source entorno_virtual/bin/activate; pip install -r requirements.txt"
                 '''
             }
         }   
         stage('TestApp') {
             steps {
             	sh '''
-            		bash -c "source entorno_virtual/bin/activate && cd src && pytest && cd .."
+            		bash -c "source entorno_virtual/bin/activate; cd src && pytest && cd .."
                 '''
             }
         }  
         stage('RunApp') {
             steps {
             	sh '''
-            		bash -c "source entorno_virtual/bin/activate && python src/main.py &"
+            		bash -c "source entorno_virtual/bin/activate ; python src/main.py &"
                 '''
             }
         } 
