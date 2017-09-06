@@ -3,7 +3,9 @@ pipeline {
  stages {
         stage('test'){
           steps{
+               sh '''
 		bash -c "echo ${workspace}"
+		'''
 	  }
         }
         stage('Checkout-git'){
