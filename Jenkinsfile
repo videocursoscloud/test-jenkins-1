@@ -16,6 +16,22 @@ pipeline {
                 	bash -c "pip install -r requirements.txt"
                 '''
             }
-        }        
+        }   
+        stage('TestApp') {
+            steps {
+            	sh '''
+                	bash -c "cd src && pytest && cd .."
+                '''
+            }
+        }  
+        stage('RunApp') {
+            steps {
+            	sh '''
+                	bash -c "python src/main.py &"
+                '''
+            }
+        }         
+
   }
 }
+
