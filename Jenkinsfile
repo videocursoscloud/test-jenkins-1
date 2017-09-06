@@ -1,6 +1,9 @@
 pipeline {
  agent any
  stages {
+        stage('Checkout'){
+		git poll: true, url: 'git@github.com:videocursoscloud/test-jenkins-1.git'
+        }
         stage('CreateVirtualEnv') {
             steps {
 				sh '''
