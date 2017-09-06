@@ -4,7 +4,7 @@ pipeline {
         stage('test'){
           steps{
                sh '''
-		bash -c "echo ${workspace}"
+		bash -c "echo ${WORKSPACE}"
 		'''
 	  }
         }
