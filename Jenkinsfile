@@ -1,6 +1,11 @@
 pipeline {
  agent any
  stages {
+        stage('test'){
+          steps{
+		bash echo ${workspace}
+	  }
+        }
         stage('Checkout-git'){
                steps{
 		git poll: true, url: 'git@github.com:videocursoscloud/test-jenkins-1.git'
