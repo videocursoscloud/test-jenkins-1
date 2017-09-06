@@ -5,8 +5,8 @@ pipeline {
         stage('CreateVirtualEnv') {
             steps {
 		sh '''
-			bash virtualenv entorno_virtual
-			bash source entorno_virtual/bin/activate
+			bash -c "virtualenv entorno_virtual"
+			bash -c "source entorno_virtual/bin/activate"
 		'''
             }
         }
